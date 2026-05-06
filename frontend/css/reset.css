@@ -1,0 +1,226 @@
+/* ===========================
+   CSS Reset
+   =========================== */
+
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Apply box-sizing to all elements */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HTML and Body */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Lists */
+ul,
+ol {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* Buttons */
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+}
+
+button:focus,
+input[type='button']:focus,
+input[type='submit']:focus,
+input[type='reset']:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Forms */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  overflow: auto;
+}
+
+/* Images */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  overflow: visible;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0;
+}
+
+/* Code */
+code,
+kbd,
+pre,
+samp {
+  font-family: 'Courier New', monospace;
+  font-size: 1em;
+}
+
+pre {
+  overflow: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Horizontal Rule */
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 1em 0;
+}
+
+/* Address */
+address {
+  font-style: normal;
+}
+
+/* Small */
+small {
+  font-size: 0.875em;
+}
+
+/* Strong */
+strong {
+  font-weight: 700;
+}
+
+/* Emphasis */
+em {
+  font-style: italic;
+}
+
+/* Mark */
+mark {
+  background-color: #fffd38;
+  color: inherit;
+  padding: 0.1em 0.2em;
+}
+
+/* Delete and Insert */
+del {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+ins {
+  text-decoration: underline;
+  text-decoration-color: #4caf50;
+}
+
+/* Subscript and Superscript */
+sub,
+sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Blockquote */
+blockquote {
+  margin: 1em 0;
+  padding-left: 1.5em;
+  border-left: 3px solid #e0e0e0;
+}
+
+/* Focus Visible (Accessibility) */
+:focus-visible {
+  outline: 2px solid #4caf50;
+  outline-offset: 2px;
+}
