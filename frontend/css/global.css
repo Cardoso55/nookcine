@@ -10,50 +10,62 @@
 }
 
 .search-bar{
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    position: relative;
 
-    width: 80%;
+    width: 100%;
+    max-width: 1000px;
 
-    margin-left: 20px;
     margin-bottom: 40px;
 }
 
-.search-bar input{
-    flex: 1;
+.search-bar img {
+    position: absolute;
 
-    padding: 10px 20px;
-    border-radius: 999px;
+    left: 20px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    pointer-events: none;
+}
+
+.search-bar input {
+    width: 100%;
+
+    padding: 15px 20px 15px 60px;
+
     border: none;
+    border-radius: 30px;
 
-    background-color: #1f2125;
-    color: #e2e2e2;
+    background: #1a1a1a;
+    color: white;
+
+    font-size: 1rem;
 }
 
 .search-bar input::placeholder{
     color: #e2e2e2c0;
 }
 
-.search-bar input:focus{
+.search-bar input:hover {
     outline: none;
-    border: 1px solid #e2e2e2c0;
 
-    background-color: #222936;
+    box-shadow: 0 0 15px rgba(255, 157, 77, 0.4);
+
+    border: 1px solid #ff9d4d;
+    
+    transition: box-shadow 0.5s ease;
 }
 
-.search-bar button{
-    padding: 10px 10px;
-    border-radius: 999px;
-    border: none;
+.search-bar input:focus {
+    outline: none;
 
-    color: #e2e2e2;
+    box-shadow: 0 0 15px rgba(255, 157, 77, 0.4);
 
-    cursor: pointer;
-}
-
-.search-bar button:hover{
-    background-color: #1f2125;
+    border: 1px solid #ff9d4d;
 }
 
 .hero-banner{
