@@ -9,7 +9,7 @@
     background-color: #0f1115;
 }
 
-.main-content .search-bar{
+.search-bar{
     display: flex;
     align-items: center;
     gap: 20px;
@@ -20,7 +20,7 @@
     margin-bottom: 40px;
 }
 
-.main-content .search-bar input{
+.search-bar input{
     flex: 1;
 
     padding: 10px 20px;
@@ -31,18 +31,18 @@
     color: #e2e2e2;
 }
 
-.main-content .search-bar input::placeholder{
+.search-bar input::placeholder{
     color: #e2e2e2c0;
 }
 
-.main-content .search-bar input:focus{
+.search-bar input:focus{
     outline: none;
     border: 1px solid #e2e2e2c0;
 
     background-color: #222936;
 }
 
-.main-content .search-bar button{
+.search-bar button{
     padding: 10px 10px;
     border-radius: 999px;
     border: none;
@@ -52,47 +52,141 @@
     cursor: pointer;
 }
 
-.main-content .search-bar button:hover{
+.search-bar button:hover{
     background-color: #1f2125;
 }
 
-.main-content .welcome-section{
-    margin-left: 20px;
+.hero-banner{
+    width: 100%;
+    height: 450px;
+
+    border-radius: 20px;
+
+    background-image: url(https://s2.glbimg.com/2C0hMRuCY_7NfDPjby4_Bjmq8Nc=/e.glbimg.com/og/ed/f/original/2018/03/22/avengers-infinity-war-official-poster-2018-4o.jpg);
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+
     margin-bottom: 40px;
 }
 
-.main-content .welcome-section h2{
-    font-size: 32px;
+.hero-banner:hover{
+    transform: scale(1.02);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.hero-overlay{
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0,0,0,0.9) 0%,
+        rgba(0,0,0,0.7) 35%,
+        rgba(0,0,0,0.2) 100%
+    );
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-content{
+    width: 50%;
+
+    padding: 60px;
+}
+
+.hero-content h1{
+    font-size: 3rem;
+    font-weight: 700;
     color: #e2e2e2;
 
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
-.main-content .welcome-section p{
-    font-size: 18px;
-    color: #e2e2e2c0;
+.hero-category{
+    color: #e9a071;
+    font-weight: 600;
+
+    text-transform: uppercase;
 }
 
-.main-content .list-films{
+.hero-description {
+    margin-top: 20px;
+
+    line-height: 1.8;
+
+    color: #cfcfcf;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.btn-watch {
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+    color: #e2e2e2;
+}
+
+.btn-watch:hover {
+    text-decoration: underline;
+    color: #e9a071;
+
+    transition: color 0.3s ease;
+}
+
+.btn-details {
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.btn-details:hover {
+    background-color: rgba(255,255,255,.1);
+
+    transition: background-color 0.3s ease;
+}
+
+.list-films{
     margin-left: 20px;
     margin-bottom: 30px;
 }
 
-.main-content .list-films h3{
+.list-films h3{
     font-size: 24px;
     color: #e2e2e2;
 
     margin-bottom: 20px;
 }
 
-.main-content .list-films .list-films-items{
+.list-films .list-films-items{
     display: flex;
     gap: 20px;
 
     width: 100%;
 }
 
-.main-content .list-films .list-films-items .list-film-item{
+.list-films .list-films-items .list-film-item{
     width: 200px;
     flex-shrink: 0;
 
@@ -104,18 +198,18 @@
     background-color: #1f2125;
 }
 
-.main-content .list-films .list-films-items .list-film-item img{
+.list-films .list-films-items .list-film-item img{
     width: 100%;
     height: 200px;
 
     object-fit: cover;
 }
 
-.main-content .list-films .list-films-items .list-film-item:hover{
+.list-films .list-films-items .list-film-item:hover{
     transform: scale(1.05);
     transition: transform 0.3s ease;
 }
 
-.main-content .list-films .list-films-items .list-film-item:hover img{
+.list-films .list-films-items .list-film-item:hover img{
     filter: brightness(0.8);
 }
