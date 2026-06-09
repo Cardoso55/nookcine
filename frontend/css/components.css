@@ -1,0 +1,93 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    background-color: #0f1115;
+    color: #e2e2e2;
+
+    padding: 20px;
+}
+
+.sidebar .logo {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 3.2rem;
+    font-weight: 600;
+
+    line-height: 0.9;
+}
+
+.sidebar .logo span {
+    color: #e9a071;
+    text-shadow: 0 0 10px rgba(221, 152, 3, 0.5);
+
+    font-size: 2.9rem;
+
+    margin-left: 40px;
+}
+
+.sidebar nav {
+    margin-bottom: 40px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    width: 100%;
+}
+
+.sidebar nav ul li.menu-item {
+    display: flex;
+
+    width: 100%;
+
+    margin-bottom: 40px;
+}
+
+.sidebar nav ul li.menu-item img {
+    width: 30px;
+    height: 30px;
+
+    margin-right: 10px;
+}
+
+.sidebar nav ul li a {
+    color: #e2e2e2;
+
+    font-size: 20px;
+
+    transition: color 0.3s ease;
+}
+
+.sidebar nav ul li.menu-item:hover {
+    color: #e2e2e2c0;
+
+    transform: scale(1.05);
+
+    text-decoration: underline;
+}
+
+.sidebar .user-info {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+}
+
+.sidebar .user-info img {
+    width: 30px;
+    height: 30px;
+    
+    margin-right: 15px;
+}
