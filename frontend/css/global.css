@@ -167,49 +167,51 @@
     transition: background-color 0.3s ease;
 }
 
-.list-films{
+.films-section{
     margin-left: 20px;
     margin-bottom: 30px;
 }
 
-.list-films h3{
+.films-section h3{
     font-size: 24px;
     color: #e2e2e2;
 
     margin-bottom: 20px;
 }
 
-.list-films .list-films-items{
+.films-line{
     display: flex;
     gap: 20px;
 
     width: 100%;
 }
 
-.list-films .list-films-items .list-film-item{
-    width: 200px;
-    flex-shrink: 0;
+.film-image{
+    width: 350px;
+    height: 270px;
+    
 
-    border-radius: 10px;
+    background-image: url(https://cdn.folhape.com.br/upload/dn_arquivo/2024/03/forrest-gump.jpg);
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 20px;
     overflow: hidden;
 
     cursor: pointer;
 
-    background-color: #1f2125;
+    background-color: #1a1d23;
 }
 
-.list-films .list-films-items .list-film-item img{
-    width: 100%;
-    height: 200px;
+.list-film-item span{
+    display: block;
+    margin-top: 5px;
 
-    object-fit: cover;
+    color: #e2e2e2;
+    font-size: 18px;
 }
 
-.list-films .list-films-items .list-film-item:hover{
+.list-film-item:hover{
     transform: scale(1.05);
     transition: transform 0.3s ease;
-}
-
-.list-films .list-films-items .list-film-item:hover img{
-    filter: brightness(0.8);
 }
