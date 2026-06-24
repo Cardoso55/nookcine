@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NookCine</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/global.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="sidebar">
+    <h1 class="logo">Nook<span>Cine</span></h1>
+    <h3>Explore</h3>
+    <nav>
+        <ul>
+            <li class="menu-item" id="toHome" data-page="index.html">
+                <i data-lucide="house"></i>
+                <span>Home</span>
+            </li>
+
+            <li class="menu-item" id="toMovie" data-page="movie.html">
+                <i data-lucide="film"></i>
+                <span>Filmes</span>
+            </li>
+
+            <li class="menu-item" id="toSeries" data-page="series.html">
+                <i data-lucide="tv"></i>
+                <span>Séries</span>
+            </li>
+
+            <li class="menu-item">
+                <i data-lucide="trending-up"></i>
+                <span>Em alta</span>
+            </li>
+
+            <li class="menu-item last-menu-item">
+                <i data-lucide="heart"></i>
+                <span>Favoritos</span>
+            </li>
+        </ul>
+    </nav>
+    <h3>Descubra</h3>
+    <div class="activity">
+        <ul>
+            <li class="menu-item">
+                <i data-lucide="rocket"></i>
+                <span>Lançamentos</span>
+            </li>
+            <li class="menu-item">
+                <i data-lucide="trophy"></i>
+                <span>Mais avaliados</span>
+            </li>
+            <li class="menu-item">
+                <i data-lucide="tags"></i>
+                <span>Categorias</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="overlay"></div>
+
+<script src="js/sidebar.js"></script>
+</body>

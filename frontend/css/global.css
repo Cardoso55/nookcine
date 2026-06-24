@@ -1,116 +1,229 @@
-.main-content{
-    margin-left: 250px;
+/* SIDEBAR CSS */
 
-    width: calc(100% - 250px);
-    min-height: 100vh;
-
-    padding: 40px;
-
-    background-color: #0b0d11;
-
-    
-}
-
-.top-menu{
+.sidebar {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #0b0d11;
+    color: #e2e2e2;
+    padding: 20px;
 }
 
-.search-bar{
-    position: relative;
+.sidebar::after {
+    content: "";
 
-    width: 100%;
-    max-width: 1000px;
-
-    
-    margin-bottom: 40px;
-}
-
-.search-bar img {
     position: absolute;
 
-    left: 20px;
-    top: 50%;
+    top: 50;
+    right: 0;
 
-    transform: translateY(-50%);
+    width: 2px;
+    height: 90%;
 
-    width: 30px;
-    height: 30px;
-
-    pointer-events: none;
+    background: linear-gradient(
+        transparent,
+        rgba(230, 158, 114, 0.596),
+        transparent
+    );
 }
 
-.search-bar input {
-    width: 100%;
-
-    padding: 15px 20px 15px 60px;
-
-    border: none;
-    border-radius: 30px;
-
-    background: #1a1a1a;
-    color: white;
-
-    font-size: 1rem;
-}
-
-.search-bar input::placeholder{
-    color: #e2e2e2c0;
-}
-
-.search-bar input:hover {
-    outline: none;
-
-    box-shadow: 0 0 15px rgba(255, 157, 77, 0.4);
-
-    border: 1px solid #ff9d4d;
-    
-    transition: box-shadow 0.5s ease;
-}
-
-.search-bar input:focus {
-    outline: none;
-
-    box-shadow: 0 0 15px rgba(255, 157, 77, 0.4);
-
-    border: 1px solid #ff9d4d;
-}
-
-.user-info {
+.logo {
     display: flex;
-    justify-content: flex-end;
-
-    border-radius: 999px;
-
-    padding: 6px;
+    flex-direction: column;
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 0.9;
 }
 
-.user-info:hover{
-    background-color: #1a1a1a;
-
-    transition: 1s ease;
+.logo span {
+    color: #e9a071;
+    text-shadow: 0 0 10px rgba(221, 152, 3, 0.5);
+    font-size: 2.9rem;
+    margin-left: 40px;
 }
 
-.user-info svg{
-    width: 45px;
-    height: 45px;
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar li {
+    align-items: center;
+    gap: 12px;
+    font-size: 1.2rem;
+}
+
+.sidebar svg {
+    width: 22px;
+    height: 22px;
+}
+
+li.menu-item {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+li.menu-item:hover {
+    color: #e2e2e2c0;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
+.last-menu-item{
+    margin-bottom: none;
+}
+
+.sidebar-divider {
+    width: 60%;
+    height: 1px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(230, 158, 114, 0.596),
+        transparent
+    );
+
+    margin: 30px auto;
+}
+
+.active-menu-item {
+    color: #e9a071;
+}
+
+.active-menu-item::before {
+    content: "";
+
+    width: 3px;
+    height: 24px;
+
+    background: #e9a071;
+}
+
+h3{
+    font-size: .85rem;
+    letter-spacing: 2px;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-bottom: -20px;
+}
+
+/* HAMBURGUER BUTTON CSS */
+
+.menu-toggle{
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle svg{
+    width: 32px;
+    height: 32px;
 
     color: #e2e2e2;
 }
 
+/* OVERLAY FOR SIDEBAR */
+
+.overlay{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0,0,0,.6);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s;
+
+    z-index: 998;
+}
+
+.overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* RESPONSIVIDADE HAMBURGUER SIDEBAR */
+
+@media (max-width: 1366px){
+
+    .menu-toggle{
+        display: block;
+    }
+}
+
+@media (max-width: 768px){
+
+    .menu-toggle{
+        display: block;
+    }
+
+}
+
+/* RESPONSIVIDADE SIDEBAR */
+
+@media (max-width: 768px) or (max-width: 1366px) {
+
+    .sidebar{
+        position: fixed;
+        left: -250px;
+        top: 0;
+        width: 250px;
+        height: 100vh;
+        z-index: 999;
+        transition: left .3s ease;
+    }
+
+    .sidebar.active{
+        left: 0;
+    }
+
+}
+
+@media (max-height: 600px) {
+    .sidebar{
+        height: 100vh;
+    }
+
+    .sidebar nav{
+        margin-top: 20px;
+    }
+
+    .sidebar .menu-item{
+        margin-bottom: 0px;
+        margin-top: 15px;
+    }
+
+}
+
+
+/* FIM DA SIDEBAR CSS */
+
+/* HERO BANNER CSS */
+
 .hero-banner{
     width: 100%;
     height: 450px;
-
     border-radius: 20px;
-
     background-image: url(https://s2.glbimg.com/2C0hMRuCY_7NfDPjby4_Bjmq8Nc=/e.glbimg.com/og/ed/f/original/2018/03/22/avengers-infinity-war-official-poster-2018-4o.jpg);
     background-size: cover;
     background-position: center;
-
     overflow: hidden;
-
     margin-bottom: 40px;
 }
 
@@ -123,21 +236,18 @@
 .hero-overlay{
     width: 100%;
     height: 100%;
-
     background: linear-gradient(
         90deg,
         rgba(0,0,0,0.9) 0%,
         rgba(0,0,0,0.7) 35%,
         rgba(0,0,0,0.2) 100%
     );
-
     display: flex;
     align-items: center;
 }
 
 .hero-content{
     width: 50%;
-
     padding: 60px;
 }
 
@@ -145,40 +255,32 @@
     font-size: 3rem;
     font-weight: 700;
     color: #e2e2e2;
-
     margin-bottom: 15px;
 }
 
 .hero-category{
     color: #e9a071;
     font-weight: 600;
-
     text-transform: uppercase;
 }
 
 .hero-description {
     margin-top: 20px;
-
     line-height: 1.8;
-
     color: #cfcfcf;
 }
 
 .hero-buttons {
     display: flex;
     gap: 15px;
-
     margin-top: 30px;
 }
 
 .btn-watch {
     padding: 12px 25px;
-
     border: none;
     border-radius: 8px;
-
     cursor: pointer;
-
     font-weight: 600;
     color: #e2e2e2;
 }
@@ -186,43 +288,40 @@
 .btn-watch:hover {
     text-decoration: underline;
     color: #e9a071;
-
     transition: color 0.3s ease;
 }
 
 .btn-details {
     padding: 12px 25px;
-
     border-radius: 8px;
-
     border: 1px solid rgba(255,255,255,.2);
-
     background: transparent;
-
     color: white;
-
     cursor: pointer;
 }
 
 .btn-details:hover {
     background-color: rgba(255,255,255,.1);
-
     transition: background-color 0.3s ease;
 }
 
-.films-section{
+/* FIM DO HERO BANNER CSS */
+
+/* MOVIE CARDS CSS */
+
+.cards-section{
     margin-left: 20px;
     margin-bottom: 30px;
 }
 
-.films-section h3{
+.cards-section h3{
     font-size: 24px;
     color: #e2e2e2;
 
     margin-bottom: 20px;
 }
 
-.films-line{
+.card-line{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
@@ -230,35 +329,100 @@
     width: 100%;
 }
 
-.film-image{
+.card-image{
     width: 100%;
     height: 270px;
-    
-
     background-image: url(https://cdn.folhape.com.br/upload/dn_arquivo/2024/03/forrest-gump.jpg);
     background-size: cover;
     background-position: center;
-
     border-radius: 20px;
     overflow: hidden;
-
     cursor: pointer;
-
     background-color: #1a1d23;
 }
 
-.list-film-item span{
+.list-card-item span{
     display: block;
     margin-top: 5px;
-
     color: #e2e2e2;
     font-size: 18px;
 }
 
-.list-film-item:hover{
+.list-card-item:hover{
     transform: scale(1.05);
     transition: transform 0.3s ease;
 }
+
+/* HEADER MAIN CONTENT CSS */
+
+.top-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.search-bar{
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 40px;
+}
+
+.search-bar img {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px 20px 15px 60px;
+    border: none;
+    border-radius: 30px;
+    background: #1a1a1a;
+    color: white;
+    font-size: 1rem;
+}
+
+.search-bar input::placeholder{
+    color: #e2e2e2c0;
+}
+
+.search-bar input:hover {
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 157, 77, 0.4);
+    border: 1px solid #ff9d4d;
+    transition: box-shadow 0.5s ease;
+}
+
+.search-bar input:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 157, 77, 0.4);
+    border: 1px solid #ff9d4d;
+}
+
+.user-info {
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 999px;
+    padding: 6px;
+}
+
+.user-info:hover{
+    background-color: #1a1a1a;
+    transition: 1s ease;
+}
+
+.user-info svg{
+    width: 45px;
+    height: 45px;
+    color: #e2e2e2;
+}
+
 
 /* RESPONSIVIDADE 1366px */
 
@@ -268,16 +432,7 @@
         width: 100%;
         padding: 20px;
     }
-}
 
-@media (max-width: 1366px){
-    .top-menu{
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-
-@media (max-width: 1366px){
     .hero-content{
         width: 100%;
         padding: 30px;
@@ -300,16 +455,15 @@
         width: 100%;
         padding: 20px;
     }
-}
 
-@media (max-width: 1024px){
+     .menu-toggle{
+        display: block;
+    }
+    
     .top-menu{
-        flex-direction: column;
         gap: 15px;
     }
-}
 
-@media (max-width: 1024px){
     .hero-content{
         width: 100%;
         padding: 30px;
@@ -324,6 +478,7 @@
     }
 }
 
+
 /* RESPONSIVIDADE 768px */
 
 @media (max-width: 768px){
@@ -332,16 +487,17 @@
         width: 100%;
         padding: 20px;
     }
-}
 
-@media (max-width: 768px){
     .top-menu{
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         gap: 15px;
     }
-}
 
-@media (max-width: 768px){
+    .top-menu .search-bar{
+        margin-top: 20px;
+    }
     .hero-content{
         width: 100%;
         padding: 30px;

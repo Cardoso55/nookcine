@@ -1,0 +1,351 @@
+:root {
+    /* Cores Principais */
+    --bg: #0f1115;
+    --card: #1a1a1a;
+    --accent: #e9a071;
+
+    /* Textos */
+    --text: #e2e2e2;
+    --text-secondary: #9ca3af;
+
+    /* Extras */
+    --border: rgba(233, 160, 113, 0.15);
+    --hover: #242932;
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: .3s ease;
+}
+
+.back-btn:hover {
+    color: var(--accent);
+    transform: translateX(-5px);
+}
+
+.back-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.movie-details {
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.movie-banner {
+    height: 450px;
+    border-radius: 24px;
+    overflow: hidden;
+    background-image: url(https://s2.glbimg.com/2C0hMRuCY_7NfDPjby4_Bjmq8Nc=/e.glbimg.com/og/ed/f/original/2018/03/22/avengers-infinity-war-official-poster-2018-4o.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.2),
+            rgba(0,0,0,.85)
+        );
+}
+
+.banner-overlay h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.movie-content {
+    display: flex;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+/* .movie-poster {
+    width: 280px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.4);
+} */
+
+.movie-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.movie-data h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.movie-meta {
+    display: flex;
+    gap: 20px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.movie-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.genres {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.genres span {
+    background: var(--card);
+    color: var(--accent);
+    padding: 8px 16px;
+    border-radius: 999px;
+}
+
+.movie-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--card);
+}
+
+.btn-secondary {
+    background: var(--card);
+    color: var(--text);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-3px);
+}
+
+.movie-description {
+    margin-top: 40px;
+    background: var(--card);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.movie-description h2 {
+    margin-bottom: 20px;
+}
+
+.movie-description p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.movie-extra {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.info-card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.info-card h3 {
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: var(--text-secondary);
+}
+
+.related-movies {
+    margin-top: 60px;
+}
+
+.related-movies h2 {
+    margin-bottom: 20px;
+}
+
+.related-grid {
+    display: flex;
+
+    gap: 20px;
+}
+
+.related-card {
+    width: 220px;
+    height: 330px;
+    border-radius: 20px;
+    background: var(--card);
+    transition: .3s;
+}
+
+.related-card:hover {
+    transform: translateY(-8px);
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (max-width: 1024px) {
+
+    .movie-banner {
+        height: 350px;
+    }
+
+    .banner-overlay h1 {
+        font-size: 2.5rem;
+    }
+
+    .movie-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .movie-meta {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .genres {
+        justify-content: center;
+    }
+
+    .movie-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .movie-extra {
+        grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .related-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+
+/* ========================= */
+/* CELULAR */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .movie-details {
+        width: 95%;
+    }
+
+    .movie-banner {
+        height: 250px;
+        border-radius: 16px;
+    }
+
+    .banner-overlay {
+        padding: 20px;
+    }
+
+    .banner-overlay h1 {
+        font-size: 2rem;
+    }
+
+    .movie-content {
+        gap: 25px;
+        margin-top: 25px;
+    }
+
+    .movie-data h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .movie-meta {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .genres {
+        justify-content: center;
+    }
+
+    .genres span {
+        font-size: .9rem;
+    }
+
+    .movie-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .movie-description {
+        padding: 20px;
+    }
+
+    .movie-description p {
+        font-size: .95rem;
+    }
+
+    .info-card {
+        padding: 20px;
+    }
+
+    .related-card {
+        min-width: 160px;
+        height: 240px;
+    }
+
+}

@@ -1,0 +1,17 @@
+.main-content{
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    padding: 40px;
+    background-color: #0b0d11;
+}
+
+/* RESPONSIVIDADE 1366px */
+
+@media (max-width: 1366px){
+    .main-content{
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+}
