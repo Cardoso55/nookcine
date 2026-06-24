@@ -39,6 +39,12 @@ O design foi planejado para fugir do preto absoluto, utilizando tons que remetem
 ## 🚀 Funcionalidades
 
 - [x] Planejamento de identidade visual.
+- [x] Criação da Home page.
+- [x] Criação do Sidebar.
+- [x] Criação da página de detalhes.
+- [x] Criação das páginas de filmes e séries.
+- [x] Aplicação de CSS responsivo a todas as páginas.
+- [ ] Integração com a API.
 - [ ] Listagem de filmes populares na home.
 - [ ] Barra de pesquisa funcional.
 - [ ] Filtro por gêneros (Ação, Comédia, Drama, etc).
