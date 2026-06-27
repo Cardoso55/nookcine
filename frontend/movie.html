@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NookCine | Filmes</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/global.css">   
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/movie.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
     <div id="sidebar-container"></div>
     <div class="main-content">
@@ -19,7 +21,7 @@
 
             <div class="search-bar">
                 <img src="assets/icons/search.png" alt="Search Icon">
-                <input type="text" placeholder="Pesquisar filmes e séries...">  
+                <input type="text" placeholder="Pesquisar filmes e séries...">
             </div>
             <div>
                 <button class="user-info"><i data-lucide="circle-user-round"></i></button>
@@ -32,7 +34,9 @@
                     <span class="hero-category">Filme</span>
                     <h1 class="hero-title">Vingadores: Ultimato</h1>
                     <p class="hero-info">2019 • Ação, Ficção científica • 3h 1m</p>
-                    <p class="hero-description">Após Thanos eliminar metade das criaturas vivas, os Vingadores têm de lidar com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no espaço sem água e comida, Steve Rogers e Natasha Romanov lideram a resistência contra o titã louco.</p>
+                    <p class="hero-description">Após Thanos eliminar metade das criaturas vivas, os Vingadores têm de
+                        lidar com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no espaço sem água
+                        e comida, Steve Rogers e Natasha Romanov lideram a resistência contra o titã louco.</p>
                     <div class="hero-buttons">
                         <button class="btn-watch">Assitir agora</button>
                         <button id="btn-details" class="btn-details">Mais informações</button>
@@ -41,78 +45,14 @@
             </div>
         </section>
 
-        <div class="cards-section">
-            <h3>Filmes Populares</h3>
-            <div class="card-line">
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Forrest Gump</span>
-                </div>
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Jumanji</span>
-                </div>
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Michael Jackson</span>
-                </div>
-            </div>
-        </div>
-        <div class="cards-section">
-            <h3>Ação</h3>
-            <div class="card-line">
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Forrest Gump</span>
-                </div>
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Jumanji</span>
-                </div>
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Michael Jackson</span>
-                </div>
-            </div>
-        </div>
-        <div class="cards-section">
-            <h3>Terror</h3>
-            <div class="card-line">
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Forrest Gump</span>
-                </div>
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Jumanji</span>
-                </div>
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Michael Jackson</span>
-                </div>
-            </div>
-        </div>
-        <div class="cards-section">
-            <h3>Comédia</h3>
-            <div class="card-line">
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Forrest Gump</span>
-                </div>
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Jumanji</span>
-                </div>
-                <div class="list-card-item">
-                    <div class="card-image"></div>
-                    <span class="card-title">Michael Jackson</span>
-                </div>
-            </div>
-        </div>
+        <div id="movies-container"></div>
+
     </div>
 
-
-<script src="js/sidebar.js"></script>
-<script src="js/app.js"></script>
+    <script src="components/movieSection.js"></script>
+    <script src="components/movieCard.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>

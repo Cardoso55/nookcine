@@ -329,7 +329,7 @@ h3{
     width: 100%;
 }
 
-.card-image{
+/* .card-image{
     width: 100%;
     height: 270px;
     background-image: url(https://cdn.folhape.com.br/upload/dn_arquivo/2024/03/forrest-gump.jpg);
@@ -339,6 +339,15 @@ h3{
     overflow: hidden;
     cursor: pointer;
     background-color: #1a1d23;
+} */
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: inherit;
 }
 
 .list-card-item span{
