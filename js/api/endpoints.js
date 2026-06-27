@@ -1,8 +1,12 @@
 const ENDPOINTS = {
 
+    trending: "/trending/movie/week",
+
     popular: "/movie/popular",
 
-    trending: "/trending/movie/week",
+    topRated: "/movie/top_rated",
+
+    upcoming: "/movie/upcoming",
 
     genres: "/genre/movie/list"
 
