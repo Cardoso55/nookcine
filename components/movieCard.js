@@ -3,7 +3,7 @@ function createMovieCard(movie) {
     return `
         <div class="list-card-item" data-id="${movie.id}">
             <div class="card-image">
-                <img src="${movie.poster}" alt="${movie.title}">
+                <img src="${IMAGE_URL}${movie.poster_path}" alt="${movie.title}">
             </div>
 
             <span class="card-title">

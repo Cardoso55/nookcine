@@ -322,32 +322,46 @@ h3{
 }
 
 .card-line{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
 
-    width: 100%;
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-behavior:smooth;
+    cursor:grab;
+    user-select:none;
+    -webkit-user-select:none;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity;
+    overscroll-behavior-x: contain;
+
 }
 
-/* .card-image{
+.card-line::-webkit-scrollbar {
+    display: none;
+}
+
+.card-line.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.card-image img{
     width: 100%;
-    height: 270px;
-    background-image: url(https://cdn.folhape.com.br/upload/dn_arquivo/2024/03/forrest-gump.jpg);
-    background-size: cover;
-    background-position: center;
     border-radius: 20px;
+    object-fit: cover;
+    border-radius: inherit;
+    overflow-x: auto;
     overflow: hidden;
     cursor: pointer;
     background-color: #1a1d23;
-} */
+}
 
-.card-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    border-radius: inherit;
+.list-card-item{
+    width: 300px;
+    flex-shrink: 0;
+    /* scroll-snap-align: start; */
 }
 
 .list-card-item span{
