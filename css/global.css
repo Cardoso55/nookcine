@@ -218,13 +218,19 @@ h3{
 
 .hero-banner{
     width: 100%;
-    height: 450px;
+    height: 600px;
     border-radius: 20px;
-    background-image: url(https://s2.glbimg.com/2C0hMRuCY_7NfDPjby4_Bjmq8Nc=/e.glbimg.com/og/ed/f/original/2018/03/22/avengers-infinity-war-official-poster-2018-4o.jpg);
     background-size: cover;
     background-position: center;
     overflow: hidden;
     margin-bottom: 40px;
+}
+
+.hero-banner{
+    transition:
+        opacity .4s ease,
+        transform .4s ease,
+        background-image .4s ease;
 }
 
 .hero-banner:hover{
@@ -236,14 +242,18 @@ h3{
 .hero-overlay{
     width: 100%;
     height: 100%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
     background: linear-gradient(
         90deg,
         rgba(0,0,0,0.9) 0%,
         rgba(0,0,0,0.7) 35%,
         rgba(0,0,0,0.2) 100%
     );
-    display: flex;
-    align-items: center;
 }
 
 .hero-content{
@@ -268,6 +278,10 @@ h3{
     margin-top: 20px;
     line-height: 1.8;
     color: #cfcfcf;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Número de linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .hero-buttons {
@@ -303,6 +317,31 @@ h3{
 .btn-details:hover {
     background-color: rgba(255,255,255,.1);
     transition: background-color 0.3s ease;
+}
+
+.hero-indicators{
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    display: flex;
+    gap: 10px;
+    z-index: 999;
+}
+
+.hero-indicator{
+
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.35);
+    transition: .35s ease;
+    cursor: pointer;
+
+}
+
+.hero-indicator.active{
+    background: #e9a071;
+    transform: scale(1.2);
 }
 
 /* FIM DO HERO BANNER CSS */
