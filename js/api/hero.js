@@ -9,7 +9,7 @@ let heroMovies = [];
 let currentHero = 0;
 
 
-async function carregarHero() {
+async function loadingHero() {
 
     const options = {
         method: "GET",
@@ -29,19 +29,19 @@ async function carregarHero() {
         movie.vote_average >= 7
     ).slice(0,5);
 
-    mostrarHero(heroMovies[0]);
+    showHero(heroMovies[0]);
 
-    criarIndicadores();
+    createIndex();
 
-    iniciarSlide();
+    startSlide();
 
 }
 
-carregarHero();
+loadingHero();
 
 const heroIndicators = document.querySelector(".hero-indicators");
 
-function criarIndicadores(){
+function createIndex(){
 
     heroIndicators.innerHTML = "";
 
@@ -59,7 +59,7 @@ function criarIndicadores(){
 
             currentHero = index;
 
-            trocarHero(heroMovies[index]);
+            changeHero(heroMovies[index]);
 
         }
 
@@ -69,7 +69,7 @@ function criarIndicadores(){
 
 }
 
-function atualizarIndicadores(){
+function updateIndex(){
 
     const indicators = document.querySelectorAll(".hero-indicator");
 
@@ -81,7 +81,7 @@ function atualizarIndicadores(){
 
 }
 
-function mostrarHero(movie){
+function showHero(movie){
 
     heroBanner.style.backgroundImage =
         `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`;
@@ -97,7 +97,7 @@ function mostrarHero(movie){
 
 }
 
-function iniciarSlide(){
+function startSlide(){
 
     setInterval(()=>{
 
@@ -107,19 +107,19 @@ function iniciarSlide(){
             currentHero = 0;
         }
 
-        trocarHero(heroMovies[currentHero]);
+        changeHero(heroMovies[currentHero]);
 
     },7000);
 
 }
 
-function trocarHero(movie){
+function changeHero(movie){
 
     heroBanner.style.opacity = 0;
 
     setTimeout(()=>{
-        mostrarHero(movie);
-        atualizarIndicadores();
+        showHero(movie);
+        updateIndex();
         heroBanner.style.opacity = 1;
     },400);
 

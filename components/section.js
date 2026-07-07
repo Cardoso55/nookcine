@@ -8,13 +8,13 @@ function generateSectionId(title) {
 
 
 
-function createMovieSection(title, id) {
+function createMediaSection(title, id) {
 
     const sectionId = generateSectionId(title);
 
     return `
         <section class="cards-section">
-
+    
             <h3>${title}</h3>
 
             <div class="card-line" id="${sectionId}"></div>
