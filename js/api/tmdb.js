@@ -80,27 +80,27 @@ async function getMoviesByGenre(genreId) {
 
 }
 
-async function init() {
+// async function init() {
 
-    const container = document.querySelector("#movies-container");
+//     const container = document.querySelector("#movies-container");
 
-    const genres = await getGenres();
+//     const genres = await getGenres();
 
-    for (const genre of genres) {
+//     for (const genre of genres) {
 
-        const movies = await getMoviesByGenre(genre.id);
+//         const movies = await getMoviesByGenre(genre.id);
 
-        renderCategory(
-            container,
-            genre.name,
-            movies
-        );
+//         renderCategory(
+//             container,
+//             genre.name,
+//             movies
+//         );
 
-    }
+//     }
 
-    enableDragScroll();
-    enableWheelScroll();
+//     enableDragScroll();
+//     enableWheelScroll();
 
-}
+// }
 
-init();
+// init();
