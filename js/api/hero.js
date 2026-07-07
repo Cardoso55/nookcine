@@ -5,11 +5,15 @@ const heroInfo = document.querySelector(".hero-info");
 const heroDescription = document.querySelector(".hero-description");
 const heroCategory = document.querySelector(".hero-category");
 
-let heroMovies = [];
+let heroMedia = [];
 let currentHero = 0;
+let heroType = "all";
+let heroInterval;
 
 
-async function loadingHero() {
+async function loadHero(type = "all") {
+
+    heroType = type;
 
     const options = {
         method: "GET",
@@ -19,17 +23,33 @@ async function loadingHero() {
         }
     };
 
-    const response = await fetch(`${BASE_URL}/movie/top_rated?language=pt-BR&page=1`, options);
+    let endpoint = "";
+
+    switch (type) {
+
+        case "movie":
+            endpoint = "/movie/top_rated?language=pt-BR&page=1";
+            break;
+
+        case "tv":
+            endpoint = "/tv/top_rated?language=pt-BR&page=1";
+            break;
+
+        default:
+            endpoint = "/trending/all/week?language=pt-BR";
+    }
+
+    const response = await fetch(`${BASE_URL}${endpoint}`, options);
 
     const data = await response.json();
 
-    heroMovies = data.results.filter(movie =>
-        movie.overview &&
-        movie.backdrop_path &&
-        movie.vote_average >= 7
-    ).slice(0,5);
+    heroMedia = data.results.filter(media =>
+        media.overview &&
+        media.backdrop_path &&
+        media.vote_average >= 8
+    ).slice(0, 5);
 
-    showHero(heroMovies[0]);
+    showHero(heroMedia[0]);
 
     createIndex();
 
@@ -37,29 +57,27 @@ async function loadingHero() {
 
 }
 
-loadingHero();
-
 const heroIndicators = document.querySelector(".hero-indicators");
 
-function createIndex(){
+function createIndex() {
 
     heroIndicators.innerHTML = "";
 
-    heroMovies.forEach((movie, index)=>{
+    heroMedia.forEach((media, index) => {
 
         const indicator = document.createElement("div");
 
         indicator.classList.add("hero-indicator");
 
-        if(index === 0){
+        if (index === 0) {
             indicator.classList.add("active");
         }
 
-        indicator.onclick = ()=>{
+        indicator.onclick = () => {
 
             currentHero = index;
 
-            changeHero(heroMovies[index]);
+            changeHero(heroMedia[index]);
 
         }
 
@@ -69,11 +87,11 @@ function createIndex(){
 
 }
 
-function updateIndex(){
+function updateIndex() {
 
     const indicators = document.querySelectorAll(".hero-indicator");
 
-    indicators.forEach((item,index)=>{
+    indicators.forEach((item, index) => {
 
         item.classList.toggle("active", index === currentHero);
 
@@ -81,46 +99,62 @@ function updateIndex(){
 
 }
 
-function showHero(movie){
+function showHero(media) {
 
     heroBanner.style.backgroundImage =
-        `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`;
+        `url(https://image.tmdb.org/t/p/original${media.backdrop_path})`;
 
-    heroTitle.textContent = movie.title;
+    heroTitle.textContent = media.title || media.name;
 
-    heroDescription.textContent = movie.overview;
+    heroDescription.textContent = media.overview;
 
-    heroCategory.textContent = "Filme";
+    if (heroType === "movie") {
+        heroCategory.textContent = "Filme";
+    }
+    else if (heroType === "tv") {
+        heroCategory.textContent = "Série";
+    }
+    else {
+        heroCategory.textContent =
+            media.media_type === "tv"
+                ? "Série"
+                : "Filme";
+    }
+
+    const date =
+        media.release_date || media.first_air_date;
 
     heroInfo.textContent =
-        `${movie.release_date.substring(0,4)} • ⭐ ${movie.vote_average.toFixed(1)}`;
+        `${date.substring(0, 4)} • ⭐ ${media.vote_average.toFixed(1)}`;
 
 }
 
 function startSlide(){
 
-    setInterval(()=>{
+    clearInterval(heroInterval);
+
+    heroInterval = setInterval(()=>{
 
         currentHero++;
 
-        if(currentHero >= heroMovies.length){
+        if(currentHero >= heroMedia.length){
             currentHero = 0;
         }
 
-        changeHero(heroMovies[currentHero]);
+        changeHero(heroMedia[currentHero]);
 
     },7000);
 
 }
 
-function changeHero(movie){
+function changeHero(media) {
 
     heroBanner.style.opacity = 0;
 
-    setTimeout(()=>{
-        showHero(movie);
+    setTimeout(() => {
+        showHero(media);
         updateIndex();
         heroBanner.style.opacity = 1;
-    },400);
+    }, 400);
 
 }
