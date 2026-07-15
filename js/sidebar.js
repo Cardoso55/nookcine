@@ -11,6 +11,7 @@ fetch('components/sidebar.html')
         const toHome = document.getElementById("toHome");
         const toMovie = document.getElementById("toMovie");
         const toSeries = document.getElementById("toSeries");
+        const toFavorites = document.getElementById("toFavorites");
 
         toHome.addEventListener("click", () => {
             window.location.href = "index.html";
@@ -22,6 +23,10 @@ fetch('components/sidebar.html')
 
         toSeries.addEventListener("click", () => {
             window.location.href = "series.html";
+        });
+
+        toFavorites.addEventListener("click", () => {
+            window.location.href = "favorites.html";
         });
 
         // MENU TOGGLE

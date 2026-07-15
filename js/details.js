@@ -22,6 +22,8 @@ const modal = document.querySelector(".trailer-modal");
 const iframe = document.querySelector(".trailer-video");
 const closeButton = document.querySelector(".close-trailer");
 
+const favoriteButton = document.querySelector(".favorite-button");
+
 const relatedGrid = document.querySelector(".related-grid");
 
 async function init() {
@@ -114,11 +116,15 @@ function renderDetails(data) {
 
     setupTrailer(trailer);
 
+    setupFavorites(data, media);
+
     renderRelated(data.recommendations.results, media);
 
     lucide.createIcons();
 
 }
+
+
 
 // RENDER RELATED MEDIA
 
@@ -206,3 +212,74 @@ document.addEventListener("keydown", (event) => {
     }
 
 });
+
+// FAVORITES
+
+function setupFavorites(media, mediaType) {
+
+    const favorites =
+        JSON.parse(localStorage.getItem("favorites")) || [];
+
+    const isFavorite = favorites.some(item =>
+        item.id === media.id &&
+        item.mediaType === mediaType
+    );
+
+    updateFavoriteButton(isFavorite);
+
+    favoriteButton.addEventListener("click", () => {
+
+        let favorites =
+            JSON.parse(localStorage.getItem("favorites")) || [];
+
+        const index = favorites.findIndex(item =>
+            item.id === media.id &&
+            item.mediaType === mediaType
+        );
+
+        if (index >= 0) {
+
+            favorites.splice(index, 1);
+
+            updateFavoriteButton(false);
+
+        } else {
+
+            favorites.push({
+
+                id: media.id,
+                mediaType,
+                title: media.title || media.name,
+                poster_path: media.poster_path,
+                vote_average: media.vote_average
+
+            });
+
+            updateFavoriteButton(true);
+
+        }
+
+        localStorage.setItem(
+            "favorites",
+            JSON.stringify(favorites)
+        );
+
+    });
+
+}
+
+function updateFavoriteButton(isFavorite) {
+
+    favoriteButton.innerHTML = isFavorite
+        ? `
+            <i data-lucide="heart-off"></i>
+            Remover dos Favoritos
+          `
+        : `
+            <i data-lucide="heart"></i>
+            Favoritar
+          `;
+
+    lucide.createIcons();
+
+}
