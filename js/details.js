@@ -17,6 +17,11 @@ const elements = {
     productionCompanies: document.querySelector(".info-production-companies")
 };
 
+const trailerButton = document.querySelector(".trailer-button");
+const modal = document.querySelector(".trailer-modal");
+const iframe = document.querySelector(".trailer-video");
+const closeButton = document.querySelector(".close-trailer");
+
 const relatedGrid = document.querySelector(".related-grid");
 
 async function init() {
@@ -42,10 +47,12 @@ async function init() {
 
 init();
 
+// RENDER DETAILS
+
 function renderDetails(data) {
 
     elements.banner.style.backgroundImage =
-    `linear-gradient(
+        `linear-gradient(
         rgba(15,17,21,.2),
         rgba(15,17,21,.9)
     ),
@@ -77,7 +84,7 @@ function renderDetails(data) {
     `;
 
     });
-    
+
     elements.cast.innerHTML = "";
 
     if (data.credits && data.credits.cast) {
@@ -100,11 +107,20 @@ function renderDetails(data) {
         });
     }
 
+    const trailer = data.videos.results.find(video =>
+        video.site === "YouTube" &&
+        video.type === "Trailer"
+    );
+
+    setupTrailer(trailer);
+
     renderRelated(data.recommendations.results, media);
 
     lucide.createIcons();
 
 }
+
+// RENDER RELATED MEDIA
 
 function renderRelated(mediaList, mediaType) {
 
@@ -146,5 +162,47 @@ relatedGrid.addEventListener("click", (event) => {
     const type = card.dataset.type;
 
     window.location.href = `details.html?id=${id}&media=${type}`;
+
+});
+
+
+// TRAILER MODAL
+
+function setupTrailer(trailer) {
+
+    if (!trailer) {
+        trailerButton.style.display = "none";
+        return;
+    }
+
+    trailerButton.addEventListener("click", () => {
+        iframe.src = `https://www.youtube.com/embed/${trailer.key}?autoplay=1`;
+        modal.classList.add("active");
+    });
+
+}
+
+closeButton.addEventListener("click", () => {
+
+    modal.classList.remove("active");
+    iframe.src = "";
+
+});
+
+modal.addEventListener("click", (event) => {
+
+    if (event.target === modal) {
+        modal.classList.remove("active");
+        iframe.src = "";
+    }
+
+});
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+        modal.classList.remove("active");
+        iframe.src = "";
+    }
 
 });

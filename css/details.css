@@ -239,8 +239,8 @@ body {
 
 }
 
-.btn-primary,
-.btn-secondary {
+.trailer-button,
+.favorite-button {
 
     display: flex;
     align-items: center;
@@ -255,21 +255,21 @@ body {
 
 }
 
-.btn-primary {
+.trailer-button {
 
     background: var(--accent);
     color: #111;
 
 }
 
-.btn-primary:hover {
+.trailer-button:hover {
 
     background: var(--accent-hover);
     transform: translateY(-4px);
 
 }
 
-.btn-secondary {
+.favorite-button {
 
     background: var(--card);
     color: var(--text);
@@ -277,18 +277,87 @@ body {
 
 }
 
-.btn-secondary:hover {
+.favorite-button:hover {
 
     background: var(--card-hover);
     transform: translateY(-4px);
 
 }
 
-.btn-primary svg,
-.btn-secondary svg {
+.trailer-button svg,
+.favorite-button svg {
 
     width: 18px;
     height: 18px;
+
+}
+
+/* ===================================
+    MODAL TRAILER
+=================================== */
+
+.trailer-modal{
+
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(8px);
+    opacity:0;
+    visibility:hidden;
+    transition:.35s;
+    z-index:999;
+
+}
+
+.trailer-modal.active{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+.trailer-content{
+
+    position:relative;
+    width:min(1100px,90vw);
+    aspect-ratio:16/9;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.5);
+
+}
+
+.trailer-video{
+
+    width:100%;
+    height:100%;
+    border:none;
+
+}
+
+.close-trailer{
+
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    background:rgba(0,0,0,.65);
+    color:white;
+    z-index:10;
+
+}
+
+.close-trailer:hover{
+
+    background:var(--accent);
+    color:#111;
 
 }
 

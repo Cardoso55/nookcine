@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +11,18 @@
     <link rel="stylesheet" href="css/details.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
 
     <main class="media-details">
         <!-- Botão de Voltar -->
-         
+
         <a href="index.html" class="back-btn">
             <i data-lucide="arrow-left"></i> Voltar
         </a>
 
         <!-- Banner -->
-    
+
         <section class="media-banner">
             <div class="banner-overlay"></div>
         </section>
@@ -29,11 +31,7 @@
 
         <section class="media-content">
 
-            <img
-                src=""
-                alt=""
-                class="media-poster"
-            >
+            <img src="" alt="" class="media-poster">
 
             <div class="media-data">
 
@@ -49,10 +47,10 @@
                 </div>
 
                 <div class="media-actions">
-                    <button class="btn-primary">
+                    <button class="trailer-button">
                         <i data-lucide="play"></i> Assistir Trailer
                     </button>
-                    <button class="btn-secondary">
+                    <button class="favorite-button">
                         <i data-lucide="heart"></i> Favoritar
                     </button>
                 </div>
@@ -72,7 +70,7 @@
         <!-- Informações Extras -->
 
         <section class="media-extra">
-        
+
             <div class="info-card">
                 <h3 class="info-title">Elenco</h3>
                 <ul class="info-cast"></ul>
@@ -83,7 +81,7 @@
                 <ul class="info-production-companies"></ul>
             </div>
 
-            
+
 
         </section>
 
@@ -94,17 +92,34 @@
             <h2>Relacionados</h2>
 
             <div class="related-grid"></div>
-            
+
         </section>
     </main>
 
-<script src="js/api/config.js"></script>
-<script src="js/api/endpoints.js"></script>
-<script src="js/api/tmdb.js"></script>
-<script src="components/section.js"></script>
-<script src="components/card.js"></script>
+    <div class="trailer-modal">
 
-<script src="js/details.js"></script>
+        <div class="trailer-content">
+
+            <button class="close-trailer">
+
+                <i data-lucide="x"></i>
+
+            </button>
+
+            <iframe class="trailer-video" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+
+        </div>
+
+    </div>
+
+    <script src="js/api/config.js"></script>
+    <script src="js/api/endpoints.js"></script>
+    <script src="js/api/tmdb.js"></script>
+    <script src="components/section.js"></script>
+    <script src="components/card.js"></script>
+
+    <script src="js/details.js"></script>
 
 </body>
+
 </html>
