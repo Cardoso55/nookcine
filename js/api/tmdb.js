@@ -42,7 +42,7 @@ async function getGenres() {
 
         return data.genres;
 
-    } catch(error) {
+    } catch (error) {
 
         console.error(error);
 
@@ -72,7 +72,7 @@ async function getMoviesByGenre(genreId) {
 
         return data.results;
 
-    } catch(error) {
+    } catch (error) {
 
         console.error(error);
 
@@ -91,5 +91,19 @@ async function getDetails(id, media) {
     }
 
     return await response.json();
+
+}
+
+async function searchMedia(query) {
+
+    const response = await fetch(
+        `${BASE_URL}/search/multi?api_key=${API_KEY}&language=pt-BR&query=${query}`
+    );
+
+    const data = await response.json();
+
+    return data.results.filter(item =>
+        item.media_type !== "person"
+    );
 
 }

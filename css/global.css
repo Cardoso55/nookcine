@@ -486,6 +486,52 @@ h3{
 }
 
 
+.hidden{
+    display: none;
+}
+
+.hero-banner,
+#media-container,
+#search-container{
+    transition:.3s ease;
+}
+
+.empty-search{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    padding:100px 20px;
+    text-align:center;
+
+}
+
+.empty-search svg{
+
+    width:70px;
+    height:70px;
+    color:var(--accent);
+    opacity:.8;
+
+}
+
+.empty-search h2{
+
+    font-size:2rem;
+    color:var(--text);
+
+}
+
+.empty-search p{
+
+    max-width:500px;
+    color:var(--text-secondary);
+    line-height:1.6;
+
+}
+
 /* RESPONSIVIDADE 1366px */
 
 @media (max-width: 1366px){
