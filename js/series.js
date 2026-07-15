@@ -38,7 +38,8 @@ async function loadSeries() {
         renderCategory(
             container,
             section.title,
-            data.results
+            data.results,
+            "tv"
         );
     }
 
@@ -49,4 +50,18 @@ async function loadSeries() {
 }
 
 loadSeries();
-loadHero("tv");
+
+const content = document.querySelector(".main-content");
+
+content.addEventListener("click", (event) => {
+
+    const card = event.target.closest(".list-card-item");
+
+    if (!card) return;
+
+    const id = card.dataset.id;
+    const type = card.dataset.type;
+
+    window.location.href = `details.html?id=${id}&media=${type}`;
+
+});

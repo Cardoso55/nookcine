@@ -36,7 +36,8 @@ async function loadMovie() {
         renderCategory(
             container,
             section.title,
-            data.results
+            data.results,
+            "movie"
         );
     }
 
@@ -48,4 +49,18 @@ async function loadMovie() {
 }
 
 loadMovie();
-loadHero("movie");
+
+const content = document.querySelector(".main-content");
+
+content.addEventListener("click", (event) => {
+
+    const card = event.target.closest(".list-card-item");
+
+    if (!card) return;
+
+    const id = card.dataset.id;
+    const type = card.dataset.type;
+
+    window.location.href = `details.html?id=${id}&media=${type}`;
+
+});

@@ -15,15 +15,18 @@ const seriesGenres = [
 const sections = [
     {
         title: "🔥 Em Alta",
-        request: getTrending
+        request: getTrending,
+        mediaType: "all"
     },
     {
         title: "🎬 Filmes Populares",
-        request: getPopularMovies
+        request: getPopularMovies,
+        mediaType: "movie"
     },
     {
         title: "📺 Séries Populares",
-        request: getPopularSeries
+        request: getPopularSeries,
+        mediaType: "tv"
     }
 ];
 
@@ -39,7 +42,8 @@ async function loadHome() {
         renderCategory(
             container,
             section.title,
-            data.results
+            data.results,
+            section.mediaType
         );
     }
 
@@ -54,7 +58,8 @@ async function loadHome() {
         renderCategory(
             container,
             movieGenre.title,
-            movies.results
+            movies.results,
+            "movie"
         );
 
         // Séries
@@ -63,7 +68,8 @@ async function loadHome() {
         renderCategory(
             container,
             seriesGenre.title,
-            series.results
+            series.results,
+            "tv"
         );
 
     }
@@ -71,3 +77,18 @@ async function loadHome() {
 }
 
 loadHome();
+
+const content = document.querySelector(".main-content");
+
+content.addEventListener("click", (event) => {
+
+    const card = event.target.closest(".list-card-item");
+
+    if (!card) return;
+
+    const id = card.dataset.id;
+    const type = card.dataset.type;
+
+    window.location.href = `details.html?id=${id}&media=${type}`;
+
+});

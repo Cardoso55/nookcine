@@ -4,6 +4,7 @@ const heroTitle = document.querySelector(".hero-title");
 const heroInfo = document.querySelector(".hero-info");
 const heroDescription = document.querySelector(".hero-description");
 const heroCategory = document.querySelector(".hero-category");
+const btndetails = document.querySelector(".btn-details");
 
 let heroMedia = [];
 let currentHero = 0;
@@ -158,3 +159,9 @@ function changeHero(media) {
     }, 400);
 
 }
+
+btndetails.addEventListener("click", () => {
+
+    window.location.href = `details.html?id=${heroMedia[currentHero].id}&media=${heroType === "all" ? heroMedia[currentHero].media_type : heroType}`;
+
+});

@@ -6,12 +6,13 @@
     <title>NookCine | Detalhes</title>
 
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/details.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-    <main class="movie-details">
+    <main class="media-details">
         <!-- Botão de Voltar -->
          
         <a href="index.html" class="back-btn">
@@ -20,37 +21,34 @@
 
         <!-- Banner -->
     
-        <section class="movie-banner">
+        <section class="media-banner">
             <div class="banner-overlay"></div>
         </section>
 
         <!-- Conteúdo Principal -->
 
-        <section class="movie-content">
+        <section class="media-content">
 
-            <!-- <img
-                src="assets/img/poster.jpg"
-                alt="Poster do Filme"
-                class="movie-poster"
-            > -->
+            <img
+                src=""
+                alt=""
+                class="media-poster"
+            >
 
-            <div class="movie-data">
+            <div class="media-data">
 
-                <h2>Vingadores: Ultimato</h2>
+                <h2 class="media-title"></h2>
 
-                <div class="movie-meta">
-                    <span><i data-lucide="star"></i> 8.4</span>
-                    <span><i data-lucide="calendar"></i> 2019</span>
-                    <span><i data-lucide="clock"></i> 181 min</span>
+                <div class="media-meta">
+                    <span class="media-rating"><i data-lucide="star"></i></span>
+                    <span class="media-date"><i data-lucide="calendar"></i></span>
+                    <span class="media-runtime"><i data-lucide="clock"></i></span>
                 </div>
 
                 <div class="genres">
-                    <span>Ação</span>
-                    <span>Ficção Científica</span>
-                    <span>Aventura</span>
                 </div>
 
-                <div class="movie-actions">
+                <div class="media-actions">
                     <button class="btn-primary">
                         <i data-lucide="play"></i> Assistir Trailer
                     </button>
@@ -65,54 +63,48 @@
 
         <!-- Sinopse -->
 
-        <section class="movie-description">
+        <section class="media-description">
             <h2>Sinopse</h2>
-            <p>
-                Após os eventos devastadores de Guerra Infinita,
-                o universo está em ruínas. Com a ajuda dos aliados
-                restantes, os Vingadores se reúnem para desfazer
-                as ações de Thanos e restaurar o equilíbrio do universo.
+            <p class="media-overview">
             </p>
         </section>
 
         <!-- Informações Extras -->
 
-        <section class="movie-extra">
+        <section class="media-extra">
+        
             <div class="info-card">
-                <h3>Diretor</h3>
-                <p>Anthony Russo</p>
+                <h3 class="info-title">Elenco</h3>
+                <ul class="info-cast"></ul>
             </div>
 
             <div class="info-card">
-                <h3>Elenco</h3>
-                <p>
-                    Robert Downey Jr,
-                    Chris Evans,
-                    Scarlett Johansson
-                </p>
+                <h3 class="info-title">Produtoras</h3>
+                <ul class="info-production-companies"></ul>
             </div>
 
-            <div class="info-card">
-                <h3>Idioma</h3>
-                <p>Inglês</p>
-            </div>
+            
 
         </section>
 
         <!-- Filmes Relacionados -->
 
-        <section class="related-movies">
-            <h2>Filmes Relacionados</h2>
-            <div class="related-grid">
-                <div class="related-card"></div>
-                <div class="related-card"></div>
-                <div class="related-card"></div>
-                <div class="related-card"></div>
-            </div>
+        <section class="related-media">
+
+            <h2>Relacionados</h2>
+
+            <div class="related-grid"></div>
+            
         </section>
     </main>
-<script>
-    lucide.createIcons();
-</script>
+
+<script src="js/api/config.js"></script>
+<script src="js/api/endpoints.js"></script>
+<script src="js/api/tmdb.js"></script>
+<script src="components/section.js"></script>
+<script src="components/card.js"></script>
+
+<script src="js/details.js"></script>
+
 </body>
 </html>

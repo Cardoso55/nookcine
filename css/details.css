@@ -1,351 +1,581 @@
-:root {
-    /* Cores Principais */
-    --bg: #0f1115;
-    --card: #1a1a1a;
-    --accent: #e9a071;
+/* ===================================
+    VARIABLES
+=================================== */
 
-    /* Textos */
+:root {
+
+    --bg: #0f1115;
+    --card: #1a1d23;
+    --card-hover: #232830;
+    --accent: #e9a071;
+    --accent-hover: #f0b48b;
     --text: #e2e2e2;
     --text-secondary: #9ca3af;
+    --border: rgba(255, 255, 255, .08);
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, .45);
 
-    /* Extras */
-    --border: rgba(233, 160, 113, 0.15);
-    --hover: #242932;
-    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* ===================================
+    GLOBAL
+=================================== */
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--bg);
+
+    background: var(--bg);
     color: var(--text);
+    font-family: poppins, sans-serif;
+
 }
 
+.media-details {
+
+    width: min(1400px, 92%);
+    margin: auto;
+    padding-bottom: 80px;
+
+}
+
+/* ===================================
+    BACK BUTTON
+=================================== */
+
 .back-btn {
+
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 25px;
+    gap: 10px;
+    margin: 35px 0;
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 500;
-    transition: .3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: .25s;
+
 }
 
 .back-btn:hover {
+
     color: var(--accent);
-    transform: translateX(-5px);
+    transform: translateX(-6px);
+
 }
 
 .back-btn svg {
+
     width: 20px;
     height: 20px;
+
 }
 
-.movie-details {
-    width: 90%;
-    margin: 0 auto;
-    padding: 40px 0;
-}
+/* ===================================
+    HERO
+=================================== */
 
-.movie-banner {
-    height: 450px;
-    border-radius: 24px;
+.media-banner {
+
+    position: relative;
+    height: 560px;
+    border-radius: 28px;
     overflow: hidden;
-    background-image: url(https://s2.glbimg.com/2C0hMRuCY_7NfDPjby4_Bjmq8Nc=/e.glbimg.com/og/ed/f/original/2018/03/22/avengers-infinity-war-official-poster-2018-4o.jpg);
     background-size: cover;
     background-position: center;
+    box-shadow: var(--shadow);
+
+}
+
+.media-banner::before {
+
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(15, 17, 21, .10),
+            rgba(15, 17, 21, .20),
+            rgba(15, 17, 21, .95));
+
 }
 
 .banner-overlay {
-    width: 100%;
-    height: 100%;
+
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(1px);
+
+}
+
+/* ===================================
+    CONTENT
+=================================== */
+
+.media-content {
+
+    position: relative;
+    z-index: 10;
     display: flex;
     align-items: flex-end;
-    padding: 40px;
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0,0,0,.2),
-            rgba(0,0,0,.85)
-        );
+    gap: 45px;
+    margin-top: -180px;
+    padding: 0 55px;
+
 }
 
-.banner-overlay h1 {
-    font-size: 3rem;
-    font-weight: 700;
-}
+/* ===================================
+    POSTER
+=================================== */
 
-.movie-content {
-    display: flex;
-    margin-top: 40px;
-    gap: 40px;
-}
+.media-poster {
 
-/* .movie-poster {
-    width: 280px;
-
-    border-radius: 20px;
-
+    width: 300px;
+    border-radius: 24px;
+    object-fit: cover;
     box-shadow:
-        0 15px 35px rgba(0,0,0,.4);
-} */
+        0 25px 60px rgba(0, 0, 0, .60);
 
-.movie-data {
+    transition: .35s;
+    flex-shrink: 0;
+
+}
+
+.media-poster:hover {
+
+    transform: translateY(-8px);
+
+}
+
+/* ===================================
+    INFO
+=================================== */
+
+.media-data {
+
+    padding-bottom: 25px;
+    width: 100%;
+
+}
+
+.media-title {
+
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 18px;
+
+}
+
+.media-meta {
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-bottom: 28px;
+
 }
 
-.movie-data h2 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
+.media-meta span {
 
-.movie-meta {
-    display: flex;
-    gap: 20px;
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-}
-
-.movie-meta span {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+
 }
 
+.media-meta svg {
+
+    width: 18px;
+    height: 18px;
+    color: var(--accent);
+
+}
+
+/* ===================================
+    GENRES
+=================================== */
+
 .genres {
+
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+
 }
 
 .genres span {
-    background: var(--card);
-    color: var(--accent);
-    padding: 8px 16px;
+
+    padding: 10px 18px;
     border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, .04);
+    color: var(--accent);
+    font-size: .92rem;
+    font-weight: 600;
+    transition: .3s;
+
 }
 
-.movie-actions {
+.genres span:hover {
+
+    background: var(--accent);
+    color: #111;
+
+}
+
+/* ===================================
+    BUTTONS
+=================================== */
+
+.media-actions {
+
     display: flex;
-    gap: 15px;
-    margin-top: 30px;
+    gap: 18px;
+    flex-wrap: wrap;
+
 }
 
 .btn-primary,
 .btn-secondary {
+
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
+    gap: 10px;
+    padding: 15px 28px;
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
     cursor: pointer;
+    font-size: .95rem;
+    font-weight: 600;
     transition: .3s;
+
 }
 
 .btn-primary {
+
     background: var(--accent);
-    color: var(--card);
+    color: #111;
+
+}
+
+.btn-primary:hover {
+
+    background: var(--accent-hover);
+    transform: translateY(-4px);
+
 }
 
 .btn-secondary {
+
     background: var(--card);
     color: var(--text);
+    border: 1px solid var(--border);
+
 }
 
-.btn-primary:hover,
 .btn-secondary:hover {
-    transform: translateY(-3px);
+
+    background: var(--card-hover);
+    transform: translateY(-4px);
+
 }
 
-.movie-description {
-    margin-top: 40px;
-    background: var(--card);
-    padding: 30px;
-    border-radius: 20px;
+.btn-primary svg,
+.btn-secondary svg {
+
+    width: 18px;
+    height: 18px;
+
 }
 
-.movie-description h2 {
-    margin-bottom: 20px;
+/* ===================================
+    DESCRIPTION
+=================================== */
+
+.media-description {
+
+    margin-top: 70px;
+
 }
 
-.movie-description p {
+.media-description h2 {
+
+    font-size: 2rem;
+    margin-bottom: 18px;
+
+}
+
+.media-overview {
+
+    max-width: 900px;
     color: var(--text-secondary);
-    line-height: 1.8;
+    font-size: 1.08rem;
+    line-height: 1.9;
+
 }
 
-.movie-extra {
-    margin-top: 30px;
+/* ===================================
+    EXTRA INFO
+=================================== */
+
+.media-extra {
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 25px;
+    margin-top: 60px;
+
 }
 
 .info-card {
+
     background: var(--card);
-    padding: 25px;
-    border-radius: 20px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 28px;
+    transition: .3s;
+
 }
 
-.info-card h3 {
+.info-card:hover {
+
+    transform: translateY(-6px);
+    border-color: rgba(233, 160, 113, .35);
+
+}
+
+.info-title {
+
     color: var(--accent);
-    margin-bottom: 10px;
+    font-size: .95rem;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
 }
 
-.info-card p {
-    color: var(--text-secondary);
+.info-director,
+.info-cast,
+.info-production-companies {
+
+    color: var(--text);
+    font-size: 1.05rem;
+    line-height: 1.7;
+
 }
 
-.related-movies {
-    margin-top: 60px;
+.info-director li,
+.info-cast li,
+.info-production-companies li {
+    list-style: disc;
+    margin-left: 20px;
 }
 
-.related-movies h2 {
-    margin-bottom: 20px;
+/* ===================================
+    RELATED
+=================================== */
+
+.related-media {
+
+    margin-top: 80px;
+
+}
+
+.related-media h2 {
+
+    font-size: 2rem;
+    margin-bottom: 28px;
+
 }
 
 .related-grid {
-    display: flex;
 
-    gap: 20px;
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    scroll-behavior: smooth;
+
+}
+
+.related-grid::-webkit-scrollbar {
+
+    height: 8px;
+
+}
+
+.related-grid::-webkit-scrollbar-thumb {
+
+    background: var(--accent);
+    border-radius: 999px;
+
 }
 
 .related-card {
-    width: 220px;
-    height: 330px;
-    border-radius: 20px;
+
+    min-width: 190px;
+    height: 285px;
+    border-radius: 22px;
     background: var(--card);
-    transition: .3s;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .35s;
+    border: 1px solid transparent;
+
 }
 
 .related-card:hover {
-    transform: translateY(-8px);
+
+    transform: translateY(-10px);
+    border-color: rgba(233, 160, 113, .35);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .35);
+
 }
 
-/* ========================= */
-/* TABLET */
-/* ========================= */
+/* ===================================
+    TABLET
+=================================== */
 
-@media (max-width: 1024px) {
+@media(max-width:1100px) {
 
-    .movie-banner {
-        height: 350px;
+    .media-content {
+        margin-top: -120px;
+        padding: 0 30px;
+        gap: 35px;
     }
 
-    .banner-overlay h1 {
-        font-size: 2.5rem;
+    .media-poster {
+        width: 240px;
     }
 
-    .movie-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    .media-title {
+        font-size: 2.8rem;
     }
 
-    .movie-meta {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .genres {
-        justify-content: center;
-    }
-
-    .movie-actions {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .movie-extra {
+    .media-extra {
         grid-template-columns: 1fr;
     }
 
-    .related-grid {
-        overflow-x: auto;
-        padding-bottom: 10px;
-    }
-
-    .related-grid::-webkit-scrollbar {
-        display: none;
-    }
-
 }
 
-/* ========================= */
-/* CELULAR */
-/* ========================= */
+/* ===================================
+    MOBILE
+=================================== */
 
-@media (max-width: 768px) {
+@media(max-width:768px) {
 
-    .movie-details {
+    .media-details {
         width: 95%;
     }
 
-    .movie-banner {
-        height: 250px;
-        border-radius: 16px;
+    .media-banner {
+        height: 320px;
+        border-radius: 22px;
     }
 
-    .banner-overlay {
-        padding: 20px;
-    }
-
-    .banner-overlay h1 {
-        font-size: 2rem;
-    }
-
-    .movie-content {
-        gap: 25px;
-        margin-top: 25px;
-    }
-
-    .movie-data h2 {
-        font-size: 2rem;
-        text-align: center;
-    }
-
-    .movie-meta {
+    .media-content {
+        margin-top: -80px;
         flex-direction: column;
-        gap: 10px;
         align-items: center;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .media-poster {
+        width: 220px;
+    }
+
+    .media-title {
+        font-size: 2.2rem;
+    }
+
+    .media-meta {
+        justify-content: center;
+        gap: 15px;
     }
 
     .genres {
         justify-content: center;
     }
 
-    .genres span {
-        font-size: .9rem;
-    }
-
-    .movie-actions {
-        flex-direction: column;
-        width: 100%;
+    .media-actions {
+        justify-content: center;
     }
 
     .btn-primary,
     .btn-secondary {
-        justify-content: center;
+
         width: 100%;
+        justify-content: center;
     }
 
-    .movie-description {
-        padding: 20px;
+    .media-description {
+        margin-top: 50px;
+        text-align: center;
     }
 
-    .movie-description p {
-        font-size: .95rem;
-    }
-
-    .info-card {
-        padding: 20px;
+    .media-overview {
+        font-size: 1rem;
     }
 
     .related-card {
         min-width: 160px;
         height: 240px;
+    }
+
+}
+
+/* ===================================
+    SMALL MOBILE
+=================================== */
+
+@media(max-width:480px) {
+
+    .media-banner {
+        height: 260px;
+    }
+
+    .media-content {
+        margin-top: -60px;
+    }
+
+    .media-poster {
+        width: 180px;
+        border-radius: 18px;
+    }
+
+    .media-title {
+        font-size: 1.8rem;
+    }
+
+    .media-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .genres span {
+        padding: 8px 14px;
+        font-size: .8rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 14px;
+        font-size: .9rem;
+    }
+
+    .media-description h2,
+    .related-media h2 {
+        font-size: 1.6rem;
+    }
+
+    .info-card {
+        padding: 22px;
+
     }
 
 }

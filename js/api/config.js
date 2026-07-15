@@ -5,3 +5,5 @@ const ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NDU3ZDRkNjBjYzcwZTI5N2YyZ
 const BASE_URL = "https://api.themoviedb.org/3";
     
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
+
+const BACKDROP_URL = "https://image.tmdb.org/t/p/original";

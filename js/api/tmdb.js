@@ -80,27 +80,16 @@ async function getMoviesByGenre(genreId) {
 
 }
 
-// async function init() {
+async function getDetails(id, media) {
 
-//     const container = document.querySelector("#movies-container");
+    const response = await fetch(
+        `${BASE_URL}/${media}/${id}?api_key=${API_KEY}&language=pt-BR&append_to_response=credits,videos,recommendations`
+    );
 
-//     const genres = await getGenres();
+    if (!response.ok) {
+        throw new Error("Erro ao buscar detalhes.");
+    }
 
-//     for (const genre of genres) {
+    return await response.json();
 
-//         const movies = await getMoviesByGenre(genre.id);
-
-//         renderCategory(
-//             container,
-//             genre.name,
-//             movies
-//         );
-
-//     }
-
-//     enableDragScroll();
-//     enableWheelScroll();
-
-// }
-
-// init();
+}

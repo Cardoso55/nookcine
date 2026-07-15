@@ -1,4 +1,4 @@
-function createMediaCard(media) {
+function createMediaCard(media, mediaType) {
 
     const title = media.title || media.name;
 
@@ -6,23 +6,27 @@ function createMediaCard(media) {
         ? `${IMAGE_URL}${media.poster_path}`
         : "assets/images/no-poster.png";
 
-    const type = media.media_type || "movie";
+    const type = media.media_type || mediaType;
 
     return `
-        <div class="list-card-item" data-id="${media.id}" data-type="${type}">
-            <div class="card-image">
-                <img src="${poster}" alt="${title}">
-            </div>
-
-            <span class="card-title">
-                ${title}
-            </span>
+    <div
+        class="list-card-item"
+        data-id="${media.id}"
+        data-type="${type}"
+    >
+        <div class="card-image">
+            <img src="${poster}" alt="${title}">
         </div>
-    `;
+
+        <span class="card-title">
+            ${title}
+        </span>
+    </div>
+`;
 
 }
 
-function renderCategory(container, title, mediaList) {
+function renderCategory(container, title, mediaList, mediaType) {
 
     container.innerHTML += createMediaSection(title);
 
@@ -32,7 +36,9 @@ function renderCategory(container, title, mediaList) {
 
     mediaList.forEach(media => {
 
-        cardLine.innerHTML += createMediaCard(media);
+        console.log(media);
+
+        cardLine.innerHTML += createMediaCard(media, mediaType || media.media_type);
 
     });
 
