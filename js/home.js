@@ -1,30 +1,30 @@
 const movieGenres = [
-    { id: 28, title: "🍿 Filmes de Ação" },
-    { id: 35, title: "😂 Filmes de Comédia" },
-    { id: 27, title: "👻 Filmes de Terror" },
-    { id: 878, title: "🚀 Filmes de Ficção Científica" }
+    { id: 28, title: "Filmes de Ação" },
+    { id: 35, title: "Filmes de Comédia" },
+    { id: 27, title: "Filmes de Terror" },
+    { id: 878, title: "Filmes de Ficção Científica" }
 ];
 
 const seriesGenres = [
-    { id: 10759, title: "💥 Séries de Ação & Aventura" },
-    { id: 80, title: "🕵️ Séries de Crime" },
-    { id: 35, title: "😂 Séries de Comédia" },
-    { id: 9648, title: "🧩 Séries de Mistério" }
+    { id: 10759, title: "Séries de Ação & Aventura" },
+    { id: 80, title: "Séries de Crime" },
+    { id: 35, title: "Séries de Comédia" },
+    { id: 9648, title: "Séries de Mistério" }
 ];
 
 const sections = [
     {
-        title: "🔥 Em Alta",
+        title: "Em Alta",
         request: getTrending,
         mediaType: "all"
     },
     {
-        title: "🎬 Filmes Populares",
+        title: "Filmes Populares",
         request: getPopularMovies,
         mediaType: "movie"
     },
     {
-        title: "📺 Séries Populares",
+        title: "Séries Populares",
         request: getPopularSeries,
         mediaType: "tv"
     }

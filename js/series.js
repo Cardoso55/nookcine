@@ -1,10 +1,10 @@
 const genres = [
-    { title: "💥 Ação & Aventura", id: 10759 },
-    { title: "🕵️ Crime", id: 80 },
-    { title: "😂 Comédia", id: 35 },
-    { title: "🧩 Mistério", id: 9648 },
-    { title: "🚀 Ficção Científica & Fantasia", id: 10765 },
-    { title: "❤️ Drama", id: 18 }
+    { title: "Ação & Aventura", id: 10759 },
+    { title: "Crime", id: 80 },
+    { title: "Comédia", id: 35 },
+    { title: "Mistério", id: 9648 },
+    { title: "Ficção Científica & Fantasia", id: 10765 },
+    { title: "Drama", id: 18 }
 ];
 
 const sections = [

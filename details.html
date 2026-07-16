@@ -17,7 +17,7 @@
     <main class="media-details">
         <!-- Botão de Voltar -->
 
-        <a href="index.html" class="back-btn">
+        <a href="#" class="back-btn" onclick="history.back(); return false;">
             <i data-lucide="arrow-left"></i> Voltar
         </a>
 
@@ -100,7 +100,7 @@
 
         <div class="trailer-content">
 
-            <button class="close-trailer">
+            <button class="close-trailer" id="back-btn">
 
                 <i data-lucide="x"></i>
 
@@ -113,11 +113,9 @@
     </div>
 
     <script src="js/api/config.js"></script>
-    <script src="js/api/endpoints.js"></script>
     <script src="js/api/tmdb.js"></script>
-    <script src="components/section.js"></script>
-    <script src="components/card.js"></script>
-
+    <script src="js/components/section.js"></script>
+    <script src="js/components/card.js"></script>
     <script src="js/details.js"></script>
 
 </body>

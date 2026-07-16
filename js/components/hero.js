@@ -1,5 +1,8 @@
 const heroBanner = document.querySelector(".hero-banner");
 
+const watchBtn = document.getElementById("btn-watch");
+const modal = document.getElementById("modal-hero"); 
+
 const heroTitle = document.querySelector(".hero-title");
 const heroInfo = document.querySelector(".hero-info");
 const heroDescription = document.querySelector(".hero-description");
@@ -11,18 +14,18 @@ let currentHero = 0;
 let heroType = "all";
 let heroInterval;
 
+const options = {
+    method: "GET",
+    headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${ACCESS_TOKEN}`
+    }
+};
+
 
 async function loadHero(type = "all") {
 
     heroType = type;
-
-    const options = {
-        method: "GET",
-        headers: {
-            accept: "application/json",
-            Authorization: `Bearer ${ACCESS_TOKEN}`
-        }
-    };
 
     let endpoint = "";
 
@@ -130,21 +133,21 @@ function showHero(media) {
 
 }
 
-function startSlide(){
+function startSlide() {
 
     clearInterval(heroInterval);
 
-    heroInterval = setInterval(()=>{
+    heroInterval = setInterval(() => {
 
         currentHero++;
 
-        if(currentHero >= heroMedia.length){
+        if (currentHero >= heroMedia.length) {
             currentHero = 0;
         }
 
         changeHero(heroMedia[currentHero]);
 
-    },7000);
+    }, 7000);
 
 }
 
@@ -159,6 +162,48 @@ function changeHero(media) {
     }, 400);
 
 }
+
+async function openTrailer() {
+    const media = heroMedia[currentHero];
+
+    const type = media.media_type || "movie";
+
+    const response = await fetch(
+        `https://api.themoviedb.org/3/${type}/${media.id}/videos?language=pt-BR`,
+        options
+    );
+
+    const data = await response.json();
+
+    const trailer = data.results.find(video =>
+        video.type === "Trailer" && video.site === "YouTube"
+    );
+
+    if (trailer) {
+        modal.classList.remove("hidden");
+
+        modal.innerHTML = `
+            <div class="trailer-modal">
+                <button class="close-trailer">&times;</button>
+
+                <iframe
+                    src="https://www.youtube.com/embed/${trailer.key}?autoplay=1"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        `;
+
+        document.querySelector(".close-trailer").onclick = () => {
+            modal.classList.add("hidden");
+            modal.innerHTML = "";
+        };
+    } else {
+        alert("Trailer não encontrado.");
+    }
+}
+
+watchBtn.addEventListener("click", openTrailer);
 
 btndetails.addEventListener("click", () => {
 

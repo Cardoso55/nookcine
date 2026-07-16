@@ -124,7 +124,17 @@ function renderDetails(data) {
 
 }
 
+const backBtn = document.getElementById("back-btn");
 
+backBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = "index.html";
+    }
+});
 
 // RENDER RELATED MEDIA
 
