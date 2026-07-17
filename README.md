@@ -6,8 +6,6 @@ O **NookCine** é uma aplicação web desenvolvida para explorar filmes e série
 
 ## 📷 Preview
 
-> *(Adicione aqui uma imagem ou GIF do projeto.)*
-
 ![Preview](./assets/images/preview.png)
 
 ---
