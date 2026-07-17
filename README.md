@@ -1,52 +1,146 @@
-# 🎞️ NookCine
+# 🎬 NookCine
 
-![Status](https://img.shields.io/badge/Status-Em_Desenvolvimento-orange?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
-
-O **NookCine** é uma plataforma de exploração cinematográfica focada em proporcionar uma experiência visual imersiva e relaxante. O nome "Nook" (que significa "cantinho") reflete a proposta de criar um ambiente digital aconchegante para que entusiastas do cinema possam descobrir novos filmes e consultar detalhes técnicos.
+O **NookCine** é uma aplicação web desenvolvida para explorar filmes e séries utilizando a API do **The Movie Database (TMDB)**. O projeto foi criado com foco em praticar consumo de APIs, manipulação do DOM, JavaScript moderno e desenvolvimento de interfaces responsivas.
 
 ---
 
-## 🎯 Finalidade
+## 📷 Preview
 
-Este projeto integra o meu portfólio profissional e foi desenvolvido para demonstrar competências técnicas em:
-- **Consumo de APIs:** Integração em tempo real com a API do TMDB (The Movie Database).
-- **Interface Dinâmica:** Renderização de elementos via JavaScript assíncrono.
-- **UI/UX Design:** Aplicação de paleta de cores *Midnight Lounge* e tipografia geométrica para conforto visual.
-- **Responsividade:** Layout adaptável para dispositivos móveis, tablets e desktops.
+> *(Adicione aqui uma imagem ou GIF do projeto.)*
 
----
-
-## 🛠️ Tecnologias e Ferramentas
-
-- **HTML5:** Estrutura semântica e acessível.
-- **CSS3:** Estilização com variáveis (Custom Properties) e layouts em Flexbox/Grid.
-- **JavaScript (ES6+):** Manipulação do DOM, lógica de busca e chamadas `fetch`.
-- **TMDB API:** Fonte de dados para posters, sinopses e avaliações.
-- **Google Fonts:** Uso da fonte **Poppins** para uma leitura moderna e fluida.
-
----
-
-## 🎨 Identidade Visual (Midnight Lounge)
-
-O design foi planejado para fugir do preto absoluto, utilizando tons que remetem ao cinema em casa:
-- **Fundo:** Azul Marinho Profundo (`#0F1115`)
-- **Destaque:** Terracota / Pêssego (`#E9A071`) para botões e interações, trazendo calor ao layout.
-- **Cards:** Bordas arredondadas (16px) para uma estética suave e amigável.
+![Preview](./assets/images/preview.png)
 
 ---
 
 ## 🚀 Funcionalidades
 
-- [x] Planejamento de identidade visual.
-- [x] Criação da Home page.
-- [x] Criação do Sidebar.
-- [x] Criação da página de detalhes.
-- [x] Criação das páginas de filmes e séries.
-- [x] Aplicação de CSS responsivo a todas as páginas.
-- [ ] Integração com a API.
-- [ ] Listagem de filmes populares na home.
-- [ ] Barra de pesquisa funcional.
-- [ ] Filtro por gêneros (Ação, Comédia, Drama, etc).
-- [ ] Modal ou página de detalhes do filme.
-- [ ] Modo de salvamento em "Favoritos" (LocalStorage).
+- 🎥 Hero Banner dinâmico
+- 🔥 Filmes e séries em destaque
+- 🔎 Pesquisa em tempo real
+- 📄 Página de detalhes completa
+- ▶️ Reprodução de trailers em modal
+- ⭐ Avaliações dos títulos
+- 📅 Informações como lançamento, categorias e descrição
+- 📱 Layout totalmente responsivo
+- 🎨 Interface inspirada em plataformas de streaming
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- TMDB API
+- Fetch API
+- Lucide Icons
+
+---
+
+## 📚 Conceitos Praticados
+
+Durante o desenvolvimento deste projeto foram aplicados conceitos como:
+
+- Consumo de APIs REST
+- Requisições assíncronas com Fetch API
+- Async/Await
+- Manipulação do DOM
+- Modularização do JavaScript
+- Eventos
+- Responsividade
+- Organização de componentes
+- Boas práticas de estruturação de código
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+📦 NookCine
+ ┣ 📂 assets
+ ┃ ┣ 📂 icons
+ ┃ ┣ 📂 images
+ ┣ 📂 components
+ ┃ ┣  📄 sidebar.html
+ ┣ 📂 js
+ ┃ ┃ 📂 api
+ ┃ ┃ ┣ config.js
+ ┃ ┃ ┣ media.js
+ ┃ ┃ ┣ tmdb.js
+ ┃ ┃ 📂 components
+ ┃ ┃ ┣ card.js
+ ┃ ┃ ┣ hero.js
+ ┃ ┃ ┣ section.js
+ ┃ ┃ ┣ sidebar.js
+ ┃ ┃ 📂 services
+ ┃ ┃ ┣ favorites.js
+ ┃ ┃ ┣ search.js
+ ┃ ┣ details.js
+ ┃ ┣ hero.js
+ ┃ ┣ search.js
+ ┃ ┣ section.js
+ ┃ ┗ ui.js
+ ┣ 📄 index.html
+ ┣ 📄 movies.html
+ ┣ 📄 series.html
+ ┣ 📄 details.html
+ ┗ 📄 favorites.html
+```
+
+---
+
+## 🎯 Objetivo
+
+Este projeto foi desenvolvido com o objetivo de consolidar conhecimentos em desenvolvimento Front-end através da criação de uma aplicação completa consumindo uma API pública, priorizando organização, experiência do usuário e responsividade.
+
+---
+
+## 🔗 API Utilizada
+
+The Movie Database (TMDB)
+
+https://developer.themoviedb.org/
+
+---
+
+## 💻 Como executar
+
+```bash
+# Clone o repositório
+
+git clone https://github.com/seuusuario/NookCine.git
+
+# Abra a pasta do projeto
+
+# Execute um servidor local
+```
+
+Exemplo:
+
+- Live Server (VS Code)
+
+ou
+
+```bash
+python -m http.server
+```
+
+---
+
+## 📸 Galeria
+
+| Home | Página de Detalhes |
+|------|---------------------|
+| *(print)* | *(print)* |
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Gabriel Cardoso**.
+
+LinkedIn:
+www.linkedin.com/in/cardoso-gabriel0308
+
+GitHub:
+https://github.com/Cardoso55
