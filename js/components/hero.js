@@ -183,7 +183,7 @@ async function openTrailer() {
         modal.classList.remove("hidden");
 
         modal.innerHTML = `
-            <div class="trailer-modal">
+            <div class="trailer-modal-hero">
                 <button class="close-trailer">&times;</button>
 
                 <iframe
